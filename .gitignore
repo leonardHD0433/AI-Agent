@@ -3,3 +3,6 @@ venv/
 
 # Environment files
 .env
+
+# Cache files
+__pycache__/

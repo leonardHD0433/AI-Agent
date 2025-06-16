@@ -1,8 +1,8 @@
 import os
+from functions.utils import return_abs_path
 
 def get_files_info(working_directory, directory=None):
-    abs_working_dir = os.path.abspath(working_directory)
-    abs_dir = os.path.abspath(os.path.join(working_directory, directory or ""))
+    abs_working_dir, abs_dir = return_abs_path(working_directory, directory)
 
     if not abs_dir.startswith(abs_working_dir):
         return f'Error: Cannot list "{directory}" as it is outside the permitted working directory'

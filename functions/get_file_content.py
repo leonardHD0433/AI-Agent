@@ -1,5 +1,20 @@
 import os
+from google.genai import types
 from functions.utils import return_abs_path
+
+schema_get_file_content = types.FunctionDeclaration(
+    name="get_file_content",
+    description="Return the contents of the specified file, constrained to the working directory.",
+    parameters=types.Schema(
+        type=types.Type.OBJECT,
+        properties={
+            "file_path": types.Schema(
+                type=types.Type.STRING,
+                description="The relative path to the file to read. Required. If not provided, an error is returned.",
+            ),
+        },
+    ),
+)
 
 def get_file_content(working_directory, file_path):
     abs_working_dir, abs_file_path = return_abs_path(working_directory, file_path)

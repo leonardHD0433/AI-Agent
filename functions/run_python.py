@@ -3,8 +3,8 @@ from google.genai import types
 import os
 import subprocess
 
-schema_run_python_file = types.FunctionDeclaration(
-    name="run_python_file",
+schema_run_python = types.FunctionDeclaration(
+    name="run_python",
     description="Run the specified Python file, constrained to the working directory.",
     parameters=types.Schema(
         type=types.Type.OBJECT,
@@ -17,7 +17,7 @@ schema_run_python_file = types.FunctionDeclaration(
     ),
 )
 
-def run_python_file(working_directory, file_path):
+def run_python(working_directory, file_path):
     abs_working_dir, abs_file_path = return_abs_path(working_directory, file_path)
 
     if not abs_file_path.startswith(abs_working_dir):

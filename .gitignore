@@ -6,3 +6,6 @@ venv/
 
 # Cache files
 __pycache__/
+
+# Python version manager
+.python-version
